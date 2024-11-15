@@ -9,7 +9,7 @@ def send_notification(message, target_ip, target_user):
     os.system(command)
 
 def execute_bat_script():
-    bat_file_path = r'C:\scripconexionsshservidor.bat'  # Cambia esta ruta por la correcta
+    bat_file_path = r'C:\websuteRun.bat'  # Cambia esta ruta por la correcta
     print(f'Ejecutando script BAT en {bat_file_path}')
     os.system(bat_file_path)
 
