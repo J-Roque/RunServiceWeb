@@ -16,5 +16,6 @@ echo.
 rem Establecer conexión SSH y ejecutar comandos en secuencia
 plink.exe -batch -P %port% %usuario%@%host% -pw %contraseña% "cd .. && cd facebook/pm2 status && pm2 stop faceboot && pm2 start facebook"
 
+
 rem Finalizar el script
 exit
