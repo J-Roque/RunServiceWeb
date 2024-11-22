@@ -9,7 +9,7 @@ USERNAME = "wiskas"       # Usuario SSH
 SSH_PASSWORD = "wiskas$"  # Contraseña SSH
 SUDO_PASSWORD = "wiskas$"  # Contraseña para sudo
 WEB_URL = "http://tu-sitio-web.com"  # URL de tu web para monitorear
-CHECK_INTERVAL = 3600  # Intervalo de verificación en segundos (60 minutos)
+CHECK_INTERVAL = 60  # Intervalo de verificación en segundos (60 segundos)
 
 # validaciones
 def is_website_active(url):
@@ -83,4 +83,4 @@ if __name__ == "__main__":
             ssh_connect_and_execute(SERVER, PORT, USERNAME, SSH_PASSWORD, SUDO_PASSWORD)
         else:
             print(f"La web {WEB_URL} está activa.")
-        time.sleep(CHECK_INTERVAL)
+        time.sleep(CHECK_INTERVAL)  # Pausa de 60 segundos
