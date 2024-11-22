@@ -11,7 +11,7 @@ SUDO_PASSWORD = "wiskas$"  # Contraseña para sudo
 WEB_URL = "http://tu-sitio-web.com"  # URL de tu web para monitorear
 CHECK_INTERVAL = 3600  # Intervalo de verificación en segundos (60 minutos)
 
-
+# validaciones
 def is_website_active(url):
     """Verifica si un sitio web está activo."""
     try:
