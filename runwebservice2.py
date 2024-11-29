@@ -1,6 +1,8 @@
 import paramiko
 import requests
 import time
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 # Configuración
 SERVER = "172.12.1.1"  # Dirección del servidor (IP o hostname)
@@ -19,7 +21,7 @@ def is_website_active(url):
         return response.status_code == 200
     except requests.RequestException:
         return False
-    
+
 def ssh_connect_and_execute(server, port, username, ssh_password, sudo_password):
     """
     Conéctate a un servidor SSH
@@ -28,10 +30,10 @@ def ssh_connect_and_execute(server, port, username, ssh_password, sudo_password)
         # Crear cliente SSH
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        
+
         # Conectar al servidor
         ssh.connect(hostname=server, port=port, username=username, password=ssh_password)
-        
+
         # Abrir una sesión interactiva
         channel = ssh.invoke_shell()
 
@@ -47,7 +49,7 @@ def ssh_connect_and_execute(server, port, username, ssh_password, sudo_password)
 
         # Esperar hasta que tengamos acceso root
         while True:
-            output = channel.recv(1024).decode('utf-8')
+            output = channel.recv(1024).decode('utf-8', errors='ignore')
             if "root@" in output:  # Verifica si ya tienes acceso root
                 break
 
@@ -61,7 +63,7 @@ def ssh_connect_and_execute(server, port, username, ssh_password, sudo_password)
             channel.send(f"{cmd}\n")
             output = ""
             while True:
-                data = channel.recv(1024).decode('utf-8')
+                data = channel.recv(1024).decode('utf-8', errors='ignore')
                 output += data
                 if data.endswith("# ") or data.endswith("$ "):  # Prompt indica comando terminado
                     break
