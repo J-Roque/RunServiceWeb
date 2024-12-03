@@ -57,7 +57,7 @@ while True:
 - Este script está diseñado para ejecutarse en entornos Windows, ya que utiliza el comando `msg` y ejecuta scripts `.bat`.
 - Puede ser necesario contar con permisos administrativos para enviar mensajes a otros equipos.
 
-## Contribuciones
+## Contribuciones.
 
 ¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar el script o encuentras algún error, abre un **Issue** o envía un **Pull Request**.
 
